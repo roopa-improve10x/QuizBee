@@ -4,11 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.quizbee.databinding.ActivityQuestionsBinding;
+
 public class QuestionsActivity extends AppCompatActivity {
+
+    ActivityQuestionsBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_questions);
+        binding = ActivityQuestionsBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
     }
 }

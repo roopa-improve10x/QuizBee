@@ -40,6 +40,8 @@
         android:backgroundTint="#F44336"
         android:text="Start"
         android:textAllCaps="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enter_name_txt" />
@@ -52,6 +54,8 @@
         android:backgroundTint="#2D35D8"
         android:text="About"
         android:textAllCaps="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
