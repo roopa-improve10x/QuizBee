@@ -1,16 +1,16 @@
-package com.example.quizbee;
+package com.example.quizbee.home;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 
 import com.example.quizbee.databinding.ActivityHomeBinding;
+import com.example.quizbee.secondscreen.QuestionsActivity;
 
 public class HomeActivity extends AppCompatActivity {
 
-    ActivityHomeBinding binding;
+    private ActivityHomeBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
