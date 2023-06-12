@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.quizbee.R;
 import com.example.quizbee.ResultActivity;
 import com.example.quizbee.databinding.ActivityQuestionsBinding;
 import com.example.quizbee.models.Question;
@@ -29,6 +31,7 @@ public class QuestionsActivity extends AppCompatActivity {
     ArrayList<Question> questionsList = new ArrayList<>();
     QuizModuleAdapter quizModuleAdapter;
     int currentQuestionNumber = 0;
+    int[] answerOptionIndexes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,12 +73,22 @@ public class QuestionsActivity extends AppCompatActivity {
                 List<QuizModule> quizModules = response.body();
                 quizModuleAdapter.setData(quizModules.get(0).getQuestions());
                 questionsList = quizModules.get(0).getQuestions();
+                answerOptionIndexes = new int[quizModules.size()];
                 fetchQuestionsData(questionsList.get(0));
             }
 
             @Override
             public void onFailure(Call<List<QuizModule>> call, Throwable t) {
                 Toast.makeText(QuestionsActivity.this, "Failed to load the data", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void handleRadioGroup() {
+        binding.answerRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
             }
         });
 
@@ -113,11 +126,9 @@ public class QuestionsActivity extends AppCompatActivity {
                 fetchQuestionsData(question);
                 quizModuleAdapter.currentQuestionPosition = currentQuestionNumber;
                 quizModuleAdapter.notifyDataSetChanged();
-
             } catch (Exception exception) {
                 Toast.makeText(this, "There is no questions", Toast.LENGTH_SHORT).show();
             }
-
         });
     }
 
